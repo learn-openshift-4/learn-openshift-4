@@ -1,0 +1,74 @@
+apiVersion: ocs.openshift.io/v1
+kind: StorageCluster
+metadata:
+  annotations:
+    uninstall.ocs.openshift.io/cleanup-policy: delete
+    uninstall.ocs.openshift.io/mode: graceful
+  name: ocs-storagecluster
+  namespace: openshift-storage
+spec:
+  labelSelector:
+    matchLabels:
+      node-role.kubernetes.io/infra: ""
+  placement:
+    all:
+      tolerations:
+      - key: node-role.kubernetes.io/infra
+        effect: NoSchedule
+    arbiter:
+      tolerations:
+      - key: node-role.kubernetes.io/infra
+        effect: NoSchedule
+    osd:
+      tolerations:
+      - key: node-role.kubernetes.io/infra
+        effect: NoSchedule
+    osd-prepare:
+      tolerations:
+      - key: node-role.kubernetes.io/infra
+        effect: NoSchedule
+    rbd-mirror:
+      tolerations:
+      - key: node-role.kubernetes.io/infra
+        effect: NoSchedule
+    mon:
+      tolerations:
+      - key: node-role.kubernetes.io/infra
+        effect: NoSchedule
+    mds:
+      tolerations:
+      - key: node-role.kubernetes.io/infra
+        effect: NoSchedule
+    rgw:
+      tolerations:
+      - key: node-role.kubernetes.io/infra
+        effect: NoSchedule
+    noobaa-core:
+      tolerations:
+      - key: node-role.kubernetes.io/infra
+        effect: NoSchedule
+    noobaa-standalone:
+      tolerations:
+      - key: node-role.kubernetes.io/infra
+        effect: NoSchedule
+  network:
+    connections:
+      encryption:
+        enabled: true
+  resourceProfile: lean
+  storageDeviceSets:
+  - config: {}
+    count: 1
+    dataPVCTemplate:
+      metadata: {}
+      spec:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 512Gi
+        storageClassName: thin-csi
+        volumeMode: Block
+    name: ocs-deviceset-thin-csi
+    portable: true
+    replica: 3

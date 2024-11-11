@@ -1,0 +1,41 @@
+apiVersion: v1
+baseDomain: DOMAIN
+compute:
+- architecture: amd64
+  hyperthreading: Enabled
+  name: worker
+  platform: {}
+  replicas: 0
+controlPlane:
+  architecture: amd64
+  hyperthreading: Enabled
+  name: master
+  platform: {}
+  replicas: 3
+metadata:
+  name: CLUSTER_NAME
+platform:
+  vsphere:
+    failureDomains:
+    - name: FAILURE_DOMAIN_NAME
+      region: REGION
+      server: VCENTER_SERVER
+      topology:
+        computeCluster: CLUSTER
+        datacenter: DATACENTER
+        datastore: DATASTORE
+        networks:
+        - CHANGE_ME
+        resourcePool: RESOURCE_POOL
+      zone: AVAILABILITY_ZONE
+    vcenters:
+    - datacenters:
+      - VCENTER_DATACENTER
+      password: VCENTER_PASSWORD
+      port: 443
+      server: VCENTER_IP_OR_FQDN
+      user: VCENTER_USERNAME
+    diskType: thin
+pullSecret: RED_HAT_PULL_SECRET
+sshKey: |
+  SSH_PUBLIC_KEY
