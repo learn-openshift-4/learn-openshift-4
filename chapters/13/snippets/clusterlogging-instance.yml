@@ -9,7 +9,7 @@ spec:
     type: vector
     tolerations: 
     - key: node-role.kubernetes.io/infra 
-      effect: NoSchedule 
+      effect: NoExecute 
   logStore:
     type: lokistack
     lokistack:
@@ -29,4 +29,4 @@ spec:
       node-role.kubernetes.io/infra: ""
     tolerations:
     - key: node-role.kubernetes.io/infra
-      effect: NoSchedule
+      effect: NoExecute

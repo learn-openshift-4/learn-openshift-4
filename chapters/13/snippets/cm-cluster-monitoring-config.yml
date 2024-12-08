@@ -5,18 +5,31 @@ metadata:
   namespace: openshift-monitoring
 data:
   config.yaml: |+
+    enableUserWorkload: true
     alertmanagerMain:
       nodeSelector:
         node-role.kubernetes.io/infra: ""
       tolerations:
       - key: node-role.kubernetes.io/infra
         effect: NoExecute
+      volumeClaimTemplate:
+        spec:
+          storageClassName: ocs-storagecluster-rbd
+          resources:
+            requests:
+              storage: 20Gi
     prometheusK8s:
       nodeSelector:
         node-role.kubernetes.io/infra: ""
       tolerations:
       - key: node-role.kubernetes.io/infra
         effect: NoExecute
+      volumeClaimTemplate:
+        spec:
+          storageClassName: ocs-storagecluster-rbd
+          resources:
+            requests:
+              storage: 40Gi
     prometheusOperator:
       nodeSelector:
         node-role.kubernetes.io/infra: ""

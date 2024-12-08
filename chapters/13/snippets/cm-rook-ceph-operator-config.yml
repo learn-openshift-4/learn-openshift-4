@@ -6,4 +6,4 @@ metadata:
 data:
   CSI_PLUGIN_TOLERATIONS: |
     - key: node-role.kubernetes.io/infra
-      effect: NoSchedule
+      effect: NoExecute

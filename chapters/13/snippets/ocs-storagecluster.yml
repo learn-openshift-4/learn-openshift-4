@@ -14,43 +14,43 @@ spec:
     all:
       tolerations:
       - key: node-role.kubernetes.io/infra
-        effect: NoSchedule
+        effect: NoExecute
     arbiter:
       tolerations:
       - key: node-role.kubernetes.io/infra
-        effect: NoSchedule
+        effect: NoExecute
     osd:
       tolerations:
       - key: node-role.kubernetes.io/infra
-        effect: NoSchedule
+        effect: NoExecute
     osd-prepare:
       tolerations:
       - key: node-role.kubernetes.io/infra
-        effect: NoSchedule
+        effect: NoExecute
     rbd-mirror:
       tolerations:
       - key: node-role.kubernetes.io/infra
-        effect: NoSchedule
+        effect: NoExecute
     mon:
       tolerations:
       - key: node-role.kubernetes.io/infra
-        effect: NoSchedule
+        effect: NoExecute
     mds:
       tolerations:
       - key: node-role.kubernetes.io/infra
-        effect: NoSchedule
+        effect: NoExecute
     rgw:
       tolerations:
       - key: node-role.kubernetes.io/infra
-        effect: NoSchedule
+        effect: NoExecute
     noobaa-core:
       tolerations:
       - key: node-role.kubernetes.io/infra
-        effect: NoSchedule
+        effect: NoExecute
     noobaa-standalone:
       tolerations:
       - key: node-role.kubernetes.io/infra
-        effect: NoSchedule
+        effect: NoExecute
   network:
     connections:
       encryption:

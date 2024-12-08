@@ -24,7 +24,7 @@ spec:
           node-role.kubernetes.io/infra: "" 
       taints: 
       - key: node-role.kubernetes.io/infra
-        effect: NoSchedule
+        effect: NoExecute
       providerSpec:
         value:
           apiVersion: vsphereprovider.openshift.io/v1beta1
