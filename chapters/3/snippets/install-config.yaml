@@ -1,5 +1,5 @@
 apiVersion: v1
-baseDomain: DOMAIN
+baseDomain: example.com
 compute:
 - architecture: amd64
   hyperthreading: Enabled
@@ -13,29 +13,29 @@ controlPlane:
   platform: {}
   replicas: 3
 metadata:
-  name: CLUSTER_NAME
+  name: ocp4
 platform:
   vsphere:
     failureDomains:
-    - name: FAILURE_DOMAIN_NAME
-      region: REGION
-      server: VCENTER_SERVER
+    - name: US-NY-DC-CLUSTER
+      region: us-ny
+      server: 10.192.101.16
       topology:
-        computeCluster: CLUSTER
-        datacenter: DATACENTER
-        datastore: DATASTORE
+        computeCluster: /DC/host/Cluster
+        datacenter: DC
+        datastore: /DC/datastore/10.192.19.12-local-disk
         networks:
-        - CHANGE_ME
-        resourcePool: RESOURCE_POOL
-      zone: AVAILABILITY_ZONE
+        - pg-v3110-10.100.10.0%2f24
+        resourcePool: /DC/host/Cluster//Resources
+      zone: us-ny1
     vcenters:
     - datacenters:
-      - VCENTER_DATACENTER
-      password: VCENTER_PASSWORD
+      - DC
+      password: PASSWORD
       port: 443
-      server: VCENTER_IP_OR_FQDN
-      user: VCENTER_USERNAME
+      server: 10.192.101.16
+      user: administrator@vsphere.local
     diskType: thin
-pullSecret: RED_HAT_PULL_SECRET
+pullSecret: 'PULL_SECRET'
 sshKey: |
-  SSH_PUBLIC_KEY
+  PUBLIC_SSH_KEY

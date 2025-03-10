@@ -3,7 +3,7 @@
     "config": {
       "merge": [
         {
-          "source": "http://CHANGE_ME/bootstrap.ign",
+          "source": "http://bastion.ocp4.example.com/bootstrap.ign",
           "verification": {}
         }
       ]

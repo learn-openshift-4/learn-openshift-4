@@ -1,4 +1,4 @@
 authorityKeyIdentifier=keyid,issuer
 basicConstraints=CA:FALSE
 keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
-subjectAltName = DNS:*.apps.CLUSTER_NAME.DOMAIN
+subjectAltName = DNS:*.apps.ocp4.example.com

@@ -12,7 +12,6 @@ spec:
     secret:
       name: logging-loki-s3 
       type: s3 
-      credentialMode: 
     tls:
       caName: openshift-service-ca.crt
       caKey: service-ca.crt
